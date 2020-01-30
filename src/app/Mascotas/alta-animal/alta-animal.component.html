@@ -1,0 +1,72 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center "  style="margin-top: 1em;" >
+            <h3>AÑADIR ANIMAL</h3>
+            </div>
+        </div>
+   <div class="card-body">
+            <form   #formu="ngForm" >
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input placeholder="Nombre" required minlength="3" autocomplete="on" id="nombre" name="nombre" 
+                    type="text" class="form-control"  [(ngModel)]="mascota.nombre" #nombre="ngModel" required>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                        <div *ngIf="nombre.errors.required">
+                          El Nombre es abligatorio
+                        </div>
+                        <div *ngIf="nombre.errors.minlength">
+                            Debe contener minimo 3 caracteres
+                        </div>
+                        </div>
+                    </div>
+        <div class="form-group">
+            <label for="">Tipo</label>
+                <input placeholder="tipo" required minlength="3" autocomplete="on" id="tipo" name="tipo" 
+                type="text" class="form-control"  [(ngModel)]="mascota.tipo" #tipo="ngModel" required>
+                <div class="alert alert-danger" *ngIf="tipo.invalid && (tipo.dirty || tipo.touched)" >
+                        <div *ngIf="tipo.errors.required">
+                                  El Nombre es abligatorio
+                                </div>
+                                <div *ngIf="tipo.errors.minlength">
+                                    Debe contener minimo 3 caracteres
+                                </div>
+                                </div>
+                        </div>
+        <div class="form-group">
+            <label for="">Precio</label>
+                 <input placeholder="Precio" autocomplete="on" id="precio" name="precio" 
+                  type="text" class="form-control"  [(ngModel)]="mascota.precio" #precio="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="precio.invalid && (precio.dirty || precio.touched)" >
+                  <div *ngIf="precio.errors.required">
+                            El Nombre es abligatorio
+                            </div>
+                            </div>
+                         </div>   
+        <div class="form-group">
+            <label for="">Descripcion</label>
+                 <input placeholder="Descripcion" required minlength="3" autocomplete="on" id="descripcion" name="descripcion" 
+                  type="text" class="form-control"  [(ngModel)]="mascota.descripcion" #descripcion="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" >
+                  <div *ngIf="descripcion.errors.required">
+                            El Nombre es abligatorio
+                            </div>
+                            </div>
+                         </div>                           
+        <div class="form-group">
+            <label for="">Fechaentrada</label>
+                 <input placeholder="Fechaentrada" required minlength="3" autocomplete="on" id="fechaentrada" name="fechaentrada" 
+                  type="date" class="form-control"  [(ngModel)]="mascota.fechaentrada" #fechaentrada="ngModel" required>
+                  <div class="alert alert-danger" *ngIf="fechaentrada.invalid && (fechaentrada.dirty || fechaentrada.touched)" >
+                  <div *ngIf="fechaentrada.errors.required">
+                            El Nombre es abligatorio
+                            </div>
+                            </div>
+                         </div>                                                                                            
+                  
+                        
+               <button (click)="Guardar()" class="btn btn-danger" type="submit" [disabled]= "!formu.form.valid">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

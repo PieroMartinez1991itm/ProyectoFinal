@@ -1,0 +1,27 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center "  style="margin-top: 1em;" >
+            <h3>ADOPTAR MASCOTA</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <form  (ngSubmit)="submit()" #formu="ngForm" >
+                <div class="form-group">
+                    <label for="">Dni</label>
+                    <input placeholder="DNI"  required minlength="9" required maxlength="9" autocomplete="off"
+                    id="dni" name="dni" [(ngModel)]="comprador.dni" #dni="ngModel" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)" >
+                     <div *ngIf="dni.errors.required">
+                        Campo obligatorio
+                     </div>
+                     <div *ngIf="dni.errors.minlength">
+                        Debe tener 9 caracteres
+                      </div>
+                     </div>
+                 </div> 
+            <button (click)="Guardar()" class="btn btn-danger" type="submit" [disabled]= "!formu.form.valid">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

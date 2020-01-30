@@ -1,0 +1,85 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center" style="margin-top: 0.5em;">
+            <h3>AÑADIR USUARIO</h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <form  (ngSubmit)="submit()" #formu="ngForm" >
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input placeholder="Nombre" required minlength="3" autocomplete="on" id="nombre" name="nombre" 
+                    type="text" class="form-control"  [(ngModel)]="usuario.nombre" #nombre="ngModel" required>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                        <div *ngIf="nombre.errors.required">
+                          El Nombre es abligatorio
+                        </div>
+                        <div *ngIf="nombre.errors.minlength">
+                            Debe contener al menos 3 caracteres
+                        </div>
+                        </div>
+                </div>
+               <div class="form-group">
+                   <label for="">Appelido</label>
+                   <input placeholder="Apellido" required minlength="3" autocomplete="on" id="apellido" required
+                   name="apellido" [(ngModel)]="usuario.apellido" #Apellido="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="Apellido.invalid && (Apellido.dirty || Apellido.touched)" >
+                    <div *ngIf="Apellido.errors.required">
+                      El Apellido es abligatorio
+                    </div>
+                    <div *ngIf="Apellido.errors.minlength">
+                        Debe contener al menos 3 caracteres
+                    </div>
+                    </div>
+                </div> 
+               <div class="form-group">
+                   <label for="">Telefono</label>
+                   <input placeholder="Telefono" required minlength="9" required maxlength="9" autocomplete="off" required
+                    id="telefono" name="telefono" [(ngModel)]="usuario.telefono" #Telefono="ngModel" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="Telefono.invalid && (Telefono.dirty || Telefono.touched)" >
+                        <div *ngIf="Telefono.errors.required">
+                          El Telefono es abligatorio
+                        </div>
+                        <div *ngIf="Telefono.errors.minlength">
+                            Debe contener 9 caracteres
+                        </div>
+                        <div *ngIf="Telefono.errors.maxlength">
+                            Debe contener 9 caracteres
+                        </div>
+                        </div>
+                </div> 
+               <div class="form-group">
+                   <label for="">Username</label>
+                   <input placeholder="Username" required maxlength="6" autocomplete="off" id="username" required
+                   name="username" [(ngModel)]="usuario.username" #Username="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="Username.invalid && (Username.dirty || Username.touched)" >
+                    <div *ngIf="Username.errors.required">
+                      El Apellido es abligatorio
+                    </div>
+                    <div *ngIf="Username.errors.maxlength">
+                        Maximo 6 caracteres
+                    </div>
+                    </div>
+                </div> 
+               <div class="form-group">
+                   <label for="">Contraseña</label>
+                   <input placeholder="Contraseña" required minlength="6" required maxlength="12" autocomplete="off" id="contrasenia" name="contrasenia"
+                    [(ngModel)]="usuario.contrasenia" #contrasenia="ngModel" type="text" class="form-control" required>
+                    <div class="alert alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)" >
+                        <div *ngIf="contrasenia.errors.required">
+                          La Contraseña es abligatorio
+                        </div>
+                        <div *ngIf="contrasenia.errors.minlength">
+                            Debe contener minimo 6 caracteres
+                        </div>
+                        <div *ngIf="contrasenia.errors.maxlength">
+                            no puede superar 12 caracteres
+                        </div>
+                        </div>
+                </div> 
+               <button (click)="Guardar()" class="btn btn-danger" type="submit" [disabled]= "!formu.form.valid">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header">
+            <h3>Modificar Datos</h3>
+        </div>
+        <div class="card-body">
+            <form (submit)="submit()" #formu="ngForm" >
+                <div class="form-group">
+                    <label for="">Nombre:</label>
+                    <input autocomplete="off" id="Nombre" name="Nombre" class="form-control" type="text" #nombre="ngModel" [(ngModel)]="usuario.nombre" required>
+                     <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                        <div *ngIf="nombre.errors.required">
+                          El Nombre es abligatorio
+                        </div>
+                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Appelido</label>
+                    <input placeholder="Apellido" required minlength="3" autocomplete="on" id="apellido" required
+                    name="apellido" [(ngModel)]="usuario.apellido" #Apellido="ngModel" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="Apellido.invalid && (Apellido.dirty || Apellido.touched)" >
+                     <div *ngIf="Apellido.errors.required">
+                       El Apellido es abligatorio
+                     </div>
+                     </div>
+                 </div> 
+                <div class="form-group">
+                    <label for="">Telefono</label>
+                    <input placeholder="Telefono" required min="9" required maxlength="9" autocomplete="off" required
+                     id="telefono" name="telefono" [(ngModel)]="usuario.telefono" #Telefono="ngModel" type="text" class="form-control">
+                     <div class="alert alert-danger" *ngIf="Telefono.invalid && (Telefono.dirty || Telefono.touched)" >
+                         <div *ngIf="Telefono.errors.required">
+                           El Telefono es abligatorio
+                         </div>
+                         </div>
+                 </div> 
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input placeholder="Username" required maxlength="6" autocomplete="off" id="username" required
+                    name="username" [(ngModel)]="usuario.username" #Username="ngModel" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="Username.invalid && (Username.dirty || Username.touched)" >
+                     <div *ngIf="Username.errors.required">
+                       El Apellido es abligatorio
+                     </div>
+                     </div>
+                 </div> 
+                <div class="form-group">
+                    <label for="">Contraseña</label>
+                    <input placeholder="Contraseña" required minlength="6" required maxlength="12" autocomplete="off" id="contrasenia" name="contrasenia"
+                     [(ngModel)]="usuario.contrasenia" #contrasenia="ngModel" type="text" class="form-control" required>
+                     <div class="alert alert-danger" *ngIf="contrasenia.invalid && (contrasenia.dirty || contrasenia.touched)" >
+                         <div *ngIf="contrasenia.errors.required">
+                           La Contraseña es abligatorio
+                         </div>
+                         </div>
+                 </div> 
+                <button (click)="Actualizar(usuario)" type="submit"  class="btn btn-danger" [disabled]= "!formu.form.valid">Modificar</button>
+            </form>
+        </div>
+    </div>
+</div>

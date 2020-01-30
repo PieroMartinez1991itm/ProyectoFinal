@@ -1,0 +1,88 @@
+<div class="container col-md-6">
+    <div class="card">
+        <div class="card-header" >
+            <div class="text-center "  style="margin-top: 1em;" >
+            <h3 >REGISTRAR COMPRADOR </h3>
+            </div>
+        </div>
+        <div class="card-body">
+            <form  (ngSubmit)="submit()" #formu="ngForm" >
+                <div class="form-group">
+                    <label for="">Dni</label>
+                    <input placeholder="DNI"  required minlength="9" required maxlength="9" autocomplete="off"
+                    id="dni" name="dni" [(ngModel)]="comprador.dni" #dni="ngModel" type="text" class="form-control">
+                    <div class="alert alert-danger" *ngIf="dni.invalid && (dni.dirty || dni.touched)" >
+                     <div *ngIf="dni.errors.required">
+                       DNI obligatorio
+                     </div>
+                     <div *ngIf="dni.errors.minlength">
+                        Debe tener 9 caracteres
+                    </div>
+                     </div>
+                 </div> 
+                <div class="form-group">
+                    <label for="">Nombre</label>
+                    <input placeholder="Nombre" required minlength="3" autocomplete="off" id="nombre" name="nombre" 
+                    type="text" class="form-control"  [(ngModel)]="comprador.nombre" #nombre="ngModel" required>
+                    <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" >
+                        <div *ngIf="nombre.errors.required">
+                          El Nombre es abligatorio
+                        </div>
+                        <div *ngIf="nombre.errors.minlength">
+                            Debe contener minimo 3 caracteres
+                        </div>
+                        </div>
+
+                </div>
+               <div class="form-group">
+                   <label for="">Appelido</label>
+                   <input placeholder="Apellido" required minlength="3" autocomplete="off" id="apellido" required
+                   name="apellido" [(ngModel)]="comprador.apellido" #Apellido="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="Apellido.invalid && (Apellido.dirty || Apellido.touched)" >
+                    <div *ngIf="Apellido.errors.required">
+                      El Apellido es abligatorio
+                    </div>
+                    <div *ngIf="Apellido.errors.minlength">
+                        Debe contener minimo 3 caracteres
+                    </div>
+                    </div>
+                </div> 
+               <div class="form-group">
+                   <label for="">Dirección</label>
+                   <input placeholder="Dirección"  autocomplete="off" required
+                   id="direccion" name="direccion" [(ngModel)]="comprador.direccion" #direccion="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)" >
+                    <div *ngIf="direccion.errors.required">
+                      La Dirección es abligatorio
+                    </div>
+                    </div>
+            </div>  
+               <div class="form-group">
+                   <label for="">Localidad</label>
+                   <input placeholder="Localidad"  autocomplete="off" required
+                   id="localidad" name="localidad" [(ngModel)]="comprador.localidad" #localidad="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="localidad.invalid && (localidad.dirty || localidad.touched)" >
+                    <div *ngIf="localidad.errors.required">
+                      La Localidad es abligatorio
+                    </div>
+                    </div>
+            </div> 
+                <div class="form-group">
+                   <label for="">Correo</label>
+                   <input placeholder="Correo"  autocomplete="off" required
+                   id="correo" name="correo" [(ngModel)]="correo.direccion" #correo="ngModel" type="text" class="form-control">
+                   <div class="alert alert-danger" *ngIf="correo.invalid && (correo.dirty || correo.touched)" >
+                    <div *ngIf="correo.errors.required">
+                      El correo es abligatorio
+                    </div>
+                    </div>
+            </div>             
+   
+
+
+               
+               <button (click)="Guardar()" class="btn btn-danger" type="submit" [disabled]= "!formu.form.valid">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>
